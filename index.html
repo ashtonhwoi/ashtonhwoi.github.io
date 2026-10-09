@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ashton Hwoi, AI video systems builder</title>
+<meta name="description" content="Ashton Hwoi, marketing student in Hong Kong and AI video builder. Co-founder of Phantom.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+body{margin:0;background:#0B1416;font-family:'DM Sans',system-ui,sans-serif;color:#EDEAE4}
+a{color:#EDEAE4;text-decoration:none}
+a:hover{color:#E0A93B}
+@keyframes roll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.roll-track{display:flex;width:max-content;animation:roll 40s linear infinite}
+.roll-wrap:hover .roll-track{animation-play-state:paused}
+.rise{animation:rise .9s ease both}
+@media (prefers-reduced-motion:reduce){.roll-track{animation:none}.rise{animation:none}}
+</style>
+
+</head>
+<body>
+
+<div id="pf-root" style="position: relative; background: #0B1416; color: #EDEAE4; font-family: 'DM Sans', system-ui, sans-serif; min-height: 2500px; box-sizing: border-box">
+
+<canvas id="pf-contours" aria-hidden="true" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0"></canvas>
+
+<div style="position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 0 24px; box-sizing: border-box">
+
+<!-- NAV -->
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 28px 0">
+<a href="#top" style="font-family: 'Instrument Serif', Georgia, serif; font-size: 26px; color: #EDEAE4">Ashton Hwoi</a>
+<div style="display: flex; flex-wrap: wrap; gap: 28px; font-size: 15px">
+<a href="#work" style="color: #A9B4B6; padding: 10px 0">Work</a>
+<a href="#skills" style="color: #A9B4B6; padding: 10px 0">Skills</a>
+<a href="https://github.com/ashtonhwoi" style="color: #A9B4B6; padding: 10px 0">GitHub</a>
+<a href="https://www.linkedin.com/in/ashton-hwoi-725363407/" style="color: #A9B4B6; padding: 10px 0">LinkedIn</a>
+</div>
+</div>
+
+<!-- HERO -->
+<div id="top" class="rise" style="padding: 110px 0 100px; display: flex; flex-direction: column; gap: 32px; border-bottom: 1px solid #22302F">
+<div style="font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #E0A93B">Hong Kong · Marketing student · AI video builder</div>
+<h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 88px; line-height: 1.02; max-width: 900px">I build AI video systems that turn one product photo into a finished ad.</h1>
+<p style="margin: 0; font-size: 20px; line-height: 1.6; color: #A9B4B6; max-width: 700px">I study marketing at PolyU and co-founded Phantom, a small creative studio for clothing brands. I also run Phantom University, where we make AI videos and teach people how to make them.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px">
+<a href="#work" style="display: inline-block; background: #E0A93B; color: #0B1416; font-weight: 700; font-size: 16px; padding: 16px 28px; border-radius: 4px">See what I've built</a>
+<a href="mailto:ashtonhwoi@gmail.com" style="display: inline-block; border: 1px solid #3A4A49; color: #EDEAE4; font-size: 16px; padding: 16px 28px; border-radius: 4px">Say hello</a>
+</div>
+</div>
+
+<!-- ROLLING STRIP -->
+<div class="roll-wrap" style="overflow: hidden; padding: 26px 0; border-bottom: 1px solid #22302F">
+<div class="roll-track">
+<div style="display: flex; align-items: center; gap: 44px; padding-right: 44px; white-space: nowrap; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 30px; color: #A9B4B6">
+<span>Seedance</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+<span>Kling</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+<span>Nano Banana</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+<span>Claude Code</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+<span>Storyboarding</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+<span>Prompt writing</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+<span>CapCut</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+<span>ffmpeg</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+<span>WeChat copy</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+<span>Campaign concepts</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+<span>Outreach</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+<span>GitHub</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+</div>
+<div aria-hidden="true" style="display: flex; align-items: center; gap: 44px; padding-right: 44px; white-space: nowrap; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 30px; color: #A9B4B6">
+<span>Seedance</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+<span>Kling</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+<span>Nano Banana</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+<span>Claude Code</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+<span>Storyboarding</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+<span>Prompt writing</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+<span>CapCut</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+<span>ffmpeg</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+<span>WeChat copy</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+<span>Campaign concepts</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+<span>Outreach</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+<span>GitHub</span><span style="color: #E0A93B; font-style: normal">&bull;</span>
+</div>
+</div>
+</div>
+
+<!-- WHAT I DO -->
+<div style="padding: 90px 0; border-bottom: 1px solid #22302F">
+<div style="font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #7E8C8E; margin-bottom: 40px">What I do</div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px">
+<div style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 34px">AI video production</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: #A9B4B6">Product photos become reference stills, then multi-shot prompts, then video, then a clean edit with captions and sound. I plan in stills first so the expensive video step happens once.</p>
+</div>
+<div style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 34px">Automation with Claude Code</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: #A9B4B6">I turn repeated work into agents and skills: research, outreach drafts, daily planning and market analysis. The useful ones I publish as open source.</p>
+</div>
+<div style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 34px">Teaching what works</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: #A9B4B6">Phantom University shows the exact steps, costs and mistakes behind each video, so other people can make their own without wasting credits.</p>
+</div>
+</div>
+</div>
+
+<!-- WORK -->
+<div id="work" style="padding: 90px 0; border-bottom: 1px solid #22302F">
+<div style="font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #7E8C8E; margin-bottom: 40px">Selected work</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 24px 48px; padding: 36px 0; border-top: 1px solid #22302F">
+<div style="flex: 1 1 260px; min-width: 0; font-size: 14px; color: #E0A93B; letter-spacing: 0.06em">01 · PHANTOM</div>
+<div style="flex: 3 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 40px">A production pipeline for AI product videos</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: #A9B4B6; max-width: 640px">A repeatable path from one product photo to a short ad: a product and model card, a storyboard, keyframe stills, a quick animatic, then image-to-video one move per shot. Each step has a check before any video credits are spent.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px">
+<span style="font-size: 13px; border: 1px solid #3A4A49; color: #A9B4B6; padding: 5px 12px; border-radius: 99px">Seedance</span>
+<span style="font-size: 13px; border: 1px solid #3A4A49; color: #A9B4B6; padding: 5px 12px; border-radius: 99px">Kling</span>
+<span style="font-size: 13px; border: 1px solid #3A4A49; color: #A9B4B6; padding: 5px 12px; border-radius: 99px">Nano Banana</span>
+<span style="font-size: 13px; border: 1px solid #3A4A49; color: #A9B4B6; padding: 5px 12px; border-radius: 99px">CapCut</span>
+<span style="font-size: 13px; border: 1px solid #3A4A49; color: #A9B4B6; padding: 5px 12px; border-radius: 99px">ffmpeg</span>
+</div>
+</div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 24px 48px; padding: 36px 0; border-top: 1px solid #22302F">
+<div style="flex: 1 1 260px; min-width: 0; font-size: 14px; color: #E0A93B; letter-spacing: 0.06em">02 · OPEN SOURCE</div>
+<div style="flex: 3 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 40px">Claude Code skills and agents</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: #A9B4B6; max-width: 640px">A public collection I use every day: a prompt writer with a built-in approval step, a parallel company-research analyst, a personal chief-of-staff, a daily Reminders refresher for macOS, and a read-only market analyst that rates its own confidence.</p>
+<a href="https://github.com/ashtonhwoi/claude-skills" style="font-size: 16px; color: #E0A93B; padding: 8px 0">github.com/ashtonhwoi/claude-skills &rarr;</a>
+</div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 24px 48px; padding: 36px 0; border-top: 1px solid #22302F">
+<div style="flex: 1 1 260px; min-width: 0; font-size: 14px; color: #E0A93B; letter-spacing: 0.06em">03 · PHANTOM UNIVERSITY</div>
+<div style="flex: 3 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 40px">From character card to dancing cat in one take</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: #A9B4B6; max-width: 640px">Our channel's mascot is an original cat with a mushroom haircut and a velvet coat. One character sheet, two cropped references and one prompt produced a seven-second clip for 25 credits. Along the way I learned the hard way that famous characters get blocked by the tool's IP filter and original ones pass.</p>
+</div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 24px 48px; padding: 36px 0; border-top: 1px solid #22302F; border-bottom: 1px solid #22302F">
+<div style="flex: 1 1 260px; min-width: 0; font-size: 14px; color: #E0A93B; letter-spacing: 0.06em">04 · SIDE PROJECT</div>
+<div style="flex: 3 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 40px">Tech news desktop widget</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: #A9B4B6; max-width: 640px">A small macOS widget that keeps tech headlines on the desktop. Built for myself, shared under the MIT licence.</p>
+<a href="https://github.com/ashtonhwoi/technews-widget" style="font-size: 16px; color: #E0A93B; padding: 8px 0">github.com/ashtonhwoi/technews-widget &rarr;</a>
+</div>
+</div>
+</div>
+
+<!-- SKILLS -->
+<div id="skills" style="padding: 90px 0; border-bottom: 1px solid #22302F">
+<div style="font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #7E8C8E; margin-bottom: 40px">Skills</div>
+<div style="display: flex; flex-wrap: wrap; gap: 40px 48px">
+<div style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0 0 6px; font-size: 18px; font-weight: 700">AI video and image</h3>
+<div style="font-size: 17px; line-height: 1.5; color: #A9B4B6">Image generation</div>
+<div style="font-size: 17px; line-height: 1.5; color: #A9B4B6">Video generation (Seedance, Kling)</div>
+<div style="font-size: 17px; line-height: 1.5; color: #A9B4B6">Multi-shot prompt writing and storyboarding</div>
+<div style="font-size: 17px; line-height: 1.5; color: #A9B4B6">CapCut and ffmpeg editing, voiceover and sound mixing</div>
+</div>
+<div style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0 0 6px; font-size: 18px; font-weight: 700">Marketing and writing</h3>
+<div style="font-size: 17px; line-height: 1.5; color: #A9B4B6">Content marketing and copywriting in English and Chinese, including WeChat</div>
+<div style="font-size: 17px; line-height: 1.5; color: #A9B4B6">Campaign concepts, hooks and captions</div>
+<div style="font-size: 17px; line-height: 1.5; color: #A9B4B6">Pitching and personalised outreach</div>
+<div style="font-size: 17px; line-height: 1.5; color: #A9B4B6">Instagram, TikTok, Facebook, Canva</div>
+</div>
+<div style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0 0 6px; font-size: 18px; font-weight: 700">Automation and tools</h3>
+<div style="font-size: 17px; line-height: 1.5; color: #A9B4B6">Claude Code agents and skills</div>
+<div style="font-size: 17px; line-height: 1.5; color: #A9B4B6">Prompt engineering</div>
+<div style="font-size: 17px; line-height: 1.5; color: #A9B4B6">GitHub, Excel, Google Workspace</div>
+<div style="font-size: 17px; line-height: 1.5; color: #7E8C8E; margin-top: 8px">Languages: Cantonese and Mandarin (native), English (fluent)</div>
+</div>
+</div>
+</div>
+
+<!-- CONTACT -->
+<div style="padding: 100px 0 80px; display: flex; flex-direction: column; gap: 28px">
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 60px; line-height: 1.08; max-width: 760px">Looking for a marketing intern who builds things? Let's talk.</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 12px 36px; font-size: 18px">
+<a href="mailto:ashtonhwoi@gmail.com" style="color: #E0A93B; padding: 8px 0">ashtonhwoi@gmail.com</a>
+<a href="https://www.linkedin.com/in/ashton-hwoi-725363407/" style="padding: 8px 0">LinkedIn</a>
+<a href="https://github.com/ashtonhwoi" style="padding: 8px 0">GitHub</a>
+</div>
+<div style="font-size: 14px; color: #7E8C8E; margin-top: 32px">Ashton Hwoi · Hong Kong</div>
+</div>
+
+</div>
+</div>
+
+<script>
+class Component {
+mount() {
+this._cur = null;
+this._raf = 0;
+this._reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+this._kick = () => {
+if (!this._raf) this._raf = requestAnimationFrame(() => this._frame());
+};
+document.addEventListener('scroll', this._kick, true);
+window.addEventListener('resize', this._kick);
+this._kick();
+}
+
+
+_target() {
+const root = document.getElementById('pf-root');
+if (!root) return { p: 0, px: 0 };
+const r = root.getBoundingClientRect();
+const span = Math.max(1, r.height - window.innerHeight);
+const px = Math.max(0, -r.top);
+return { p: Math.min(1, px / span), px };
+}
+
+_frame() {
+this._raf = 0;
+const t = this._target();
+if (this._reduce) t.p = 0;
+if (!this._cur) this._cur = { p: t.p, px: t.px };
+const c = this._cur;
+c.p += (t.p - c.p) * 0.12;
+c.px += (t.px - c.px) * 0.12;
+this._draw(c.p, c.px);
+if (Math.abs(t.p - c.p) > 0.0004 || Math.abs(t.px - c.px) > 0.4) this._kick();
+}
+
+_draw(p, px) {
+const cv = document.getElementById('pf-contours');
+if (!cv) return;
+const dpr = Math.min(window.devicePixelRatio || 1, 2);
+const w = window.innerWidth, h = window.innerHeight;
+if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) {
+cv.width = Math.round(w * dpr);
+cv.height = Math.round(h * dpr);
+}
+const ctx = cv.getContext('2d');
+ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+ctx.clearRect(0, 0, w, h);
+
+const hex = ('#E0A93B').replace('#', '');
+const rgb = [0, 2, 4].map((i) => parseInt(hex.substr(i, 2), 16) || 0).join(',');
+
+const cell = w < 700 ? 22 : 16;
+const cols = Math.ceil(w / cell) + 1, rows = Math.ceil(h / cell) + 1;
+const n = cols * rows;
+if (!this._f || this._f.length < n) this._f = new Float32Array(n);
+const f = this._f;
+const tt = p * 14;
+const off = px * 0.22;
+const cx = w * 0.72, cy = h * 0.3;
+for (let j = 0; j < rows; j++) {
+const y = j * cell + off;
+for (let i = 0; i < cols; i++) {
+const x = i * cell;
+f[j * cols + i] =
+0.9 * Math.sin(x * 0.0042 + tt * 1.1) +
+0.9 * Math.sin(y * 0.0051 - tt * 0.8 + 1.7) +
+0.7 * Math.sin(x * 0.0031 + y * 0.0037 + tt * 0.6 + 4) +
+0.6 * Math.sin(Math.hypot(x - cx, y - cy) * 0.006 - tt * 0.9);
+}
+}
+
+const step = 0.55 - 0.23 * p;
+const minor = new Path2D(), major = new Path2D();
+let k = Math.ceil(-3.1 / step);
+for (let L = k * step; L < 3.1; L += step, k++) {
+const path = k % 4 === 0 ? major : minor;
+for (let j = 0; j < rows - 1; j++) {
+const y0 = j * cell;
+for (let i = 0; i < cols - 1; i++) {
+const a = f[j * cols + i], b = f[j * cols + i + 1];
+const d = f[(j + 1) * cols + i + 1], e = f[(j + 1) * cols + i];
+const idx = (a > L ? 8 : 0) | (b > L ? 4 : 0) | (d > L ? 2 : 0) | (e > L ? 1 : 0);
+if (idx === 0 || idx === 15) continue;
+const x0 = i * cell;
+const T = [x0 + cell * (L - a) / (b - a), y0];
+const R = [x0 + cell, y0 + cell * (L - b) / (d - b)];
+const B = [x0 + cell * (L - e) / (d - e), y0 + cell];
+const Lf = [x0, y0 + cell * (L - a) / (e - a)];
+let s;
+switch (idx) {
+case 1: case 14: s = [Lf, B]; break;
+case 2: case 13: s = [B, R]; break;
+case 3: case 12: s = [Lf, R]; break;
+case 4: case 11: s = [T, R]; break;
+case 6: case 9: s = [T, B]; break;
+case 7: case 8: s = [Lf, T]; break;
+case 5: s = [Lf, T, B, R]; break;
+default: s = [T, R, Lf, B];
+}
+for (let m = 0; m < s.length; m += 2) {
+path.moveTo(s[m][0], s[m][1]);
+path.lineTo(s[m + 1][0], s[m + 1][1]);
+}
+}
+}
+}
+ctx.lineWidth = 1;
+ctx.strokeStyle = 'rgba(' + rgb + ',0.10)';
+ctx.stroke(minor);
+ctx.strokeStyle = 'rgba(' + rgb + ',0.24)';
+ctx.stroke(major);
+}
+}
+new Component().mount();
+</script>
+</body>
+</html>
