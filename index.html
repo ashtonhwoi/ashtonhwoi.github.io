@@ -8,16 +8,16 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap">
 <style>
 body{margin:0;background:#0B1416;font-family:'DM Sans',system-ui,sans-serif;color:#EDEAE4}
 a{color:#EDEAE4;text-decoration:none}
 a:hover{color:#E0A93B}
 @keyframes roll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
 .roll-track{display:flex;width:max-content;animation:roll 40s linear infinite}
 .roll-wrap:hover .roll-track{animation-play-state:paused}
-.rise{animation:rise .9s ease both}
+
 @media (prefers-reduced-motion:reduce){.roll-track{animation:none}.rise{animation:none}}
 html{scroll-behavior:smooth;color-scheme:dark;scroll-padding-top:24px}
 ::selection{background:#E0A93B;color:#0B1416}
@@ -34,10 +34,50 @@ h3{font-size:32px!important}
 #work,#skills{padding:60px 0!important}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+:root{--ease-out:cubic-bezier(0.23,1,0.32,1);--ease-in-out:cubic-bezier(0.77,0,0.175,1)}
+.reading-progress{position:fixed;inset:0 0 auto;height:2px;background:#E0A93B;transform:scaleX(0);transform-origin:left;z-index:10;pointer-events:none}
+nav a{position:relative}
+nav a::after{content:"";position:absolute;inset:auto 0 5px;height:1px;background:#E0A93B;transform:scaleX(0);transform-origin:left;transition:transform 160ms var(--ease-out)}
+nav a[aria-current="location"]::after{transform:scaleX(1)}
+#top>div a{transition:transform 160ms var(--ease-out),background-color 160ms ease,border-color 160ms ease}
+#top>div a:active{transform:scale(.97)}
+#work>div>div:last-child>a{align-self:flex-start;text-underline-offset:6px;text-decoration:underline;text-decoration-color:transparent;transition:text-decoration-color 160ms ease}
+#work>div>div:last-child>a:focus-visible{text-decoration-color:currentColor}
+.roll-shell{position:relative}
+.roll-wrap:focus-within .roll-track,.roll-shell.is-paused .roll-track{animation-play-state:paused}
+.roll-shell.is-paused-by-user .roll-track{animation-play-state:paused}
+.motion-toggle{position:absolute;right:0;top:50%;transform:translateY(-50%);z-index:2;width:44px;height:44px;border:1px solid #3A4A49;border-radius:50%;color:#EDEAE4;background:#0B1416;display:grid;place-items:center;cursor:pointer}
+.motion-toggle svg{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.motion-toggle .play-icon{display:none}
+.motion-toggle[aria-pressed="true"] .play-icon{display:block}
+.motion-toggle[aria-pressed="true"] .pause-icon{display:none}
+.motion-toggle:focus-visible{outline:2px solid #E0A93B;outline-offset:4px}
+.roll-wrap{margin-right:58px;mask-image:linear-gradient(90deg,transparent,#000 2%,#000 96%,transparent)}
+@media(hover:hover) and (pointer:fine){
+nav a:hover::after{transform:scaleX(1)}
+#top>div a:hover{transform:translateY(-2px);border-color:#E0A93B!important}
+#work>div>div:last-child>a:hover{text-decoration-color:currentColor}
+.motion-toggle:hover{border-color:#E0A93B;color:#E0A93B}
+}
+html.keyboard-navigation{scroll-behavior:auto}
+.keyboard-navigation #top>div a{transition:none}
+.keyboard-navigation #top>div a:active{transform:none}
+@media(prefers-reduced-motion:reduce){
+#top>div a{transition:background-color 160ms ease,border-color 160ms ease}
+#top>div a:active,#top>div a:hover{transform:none}
+.roll-track{animation:none!important;width:auto;flex-wrap:wrap}
+.roll-track>div:first-child{flex-wrap:wrap;gap:16px!important;white-space:normal!important;font-size:23px!important;padding-right:0!important}
+.roll-track>div[aria-hidden]{display:none}
+.motion-toggle{display:none}
+.roll-wrap{margin-right:0;mask-image:none}
+}
+
 </style>
 
 </head>
 <body>
+<div class="reading-progress" aria-hidden="true"></div>
 
 <div id="pf-root" style="position: relative; background: #0B1416; color: #EDEAE4; font-family: 'DM Sans', system-ui, sans-serif; min-height: 2500px; box-sizing: border-box">
 
@@ -46,7 +86,7 @@ h3{font-size:32px!important}
 <div style="position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 0 24px; box-sizing: border-box">
 
 <!-- NAV -->
-<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 28px 0">
+<nav aria-label="Main navigation" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 28px 0">
 <a href="#top" style="font-family: 'Instrument Serif', Georgia, serif; font-size: 26px; color: #EDEAE4">Ashton Hwoi</a>
 <div style="display: flex; flex-wrap: wrap; gap: 28px; font-size: 15px">
 <a href="#work" style="color: #A9B4B6; padding: 10px 0">Work</a>
@@ -54,10 +94,10 @@ h3{font-size:32px!important}
 <a href="https://github.com/ashtonhwoi" style="color: #A9B4B6; padding: 10px 0">GitHub</a>
 <a href="https://www.linkedin.com/in/ashton-hwoi-725363407/" style="color: #A9B4B6; padding: 10px 0">LinkedIn</a>
 </div>
-</div>
+</nav>
 
 <!-- HERO -->
-<div id="top" class="rise" style="padding: 110px 0 100px; display: flex; flex-direction: column; gap: 32px; border-bottom: 1px solid #22302F">
+<div id="top" style="padding: 110px 0 100px; display: flex; flex-direction: column; gap: 32px; border-bottom: 1px solid #22302F">
 <p style="margin: 0; font-size: 16px; color: #A9B4B6">Hong Kong · PolyU marketing · Phantom co-founder</p>
 <h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 88px; line-height: 1.02; max-width: 900px">I make AI videos and build the workflows behind them.</h1>
 <p style="margin: 0; font-size: 20px; line-height: 1.6; color: #A9B4B6; max-width: 700px">I study marketing at PolyU and co-founded Phantom, a creative studio for clothing brands. My recent work spans fashion ads, character-led animation, and Stusy, a study-planning project I’m building with a partner.</p>
@@ -68,6 +108,8 @@ h3{font-size:32px!important}
 </div>
 
 <!-- ROLLING STRIP -->
+<div class="roll-shell">
+<button class="motion-toggle" type="button" aria-pressed="false" aria-label="Pause moving tool names"><svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path class="pause-icon" d="M7 5v10M13 5v10"/><path class="play-icon" d="m7 5 8 5-8 5Z"/></svg></button>
 <div class="roll-wrap" style="overflow: hidden; padding: 26px 0; border-bottom: 1px solid #22302F">
 <div class="roll-track">
 <div style="display: flex; align-items: center; gap: 44px; padding-right: 44px; white-space: nowrap; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 30px; color: #A9B4B6">
@@ -101,6 +143,7 @@ h3{font-size:32px!important}
 </div>
 </div>
 
+</div>
 <!-- WHAT I DO -->
 <div style="padding: 90px 0; border-bottom: 1px solid #22302F">
 <h2 class="section-heading">What I do</h2>
@@ -224,7 +267,9 @@ class Component {
 mount() {
 this._cur = null;
 this._raf = 0;
-this._reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+this._motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+this._reduce = this._motionQuery.matches;
+this._motionQuery.addEventListener('change', (event) => { this._reduce = event.matches; this._cur = null; this._kick(); });
 this._kick = () => {
 if (!this._raf) this._raf = requestAnimationFrame(() => this._frame());
 };
@@ -246,7 +291,7 @@ return { p: Math.min(1, px / span), px };
 _frame() {
 this._raf = 0;
 const t = this._target();
-if (this._reduce) t.p = 0;
+if (this._reduce) { t.p = 0; t.px = 0; }
 if (!this._cur) this._cur = { p: t.p, px: t.px };
 const c = this._cur;
 c.p += (t.p - c.p) * 0.12;
@@ -335,5 +380,6 @@ ctx.stroke(major);
 }
 new Component().mount();
 </script>
+<script src="motion.js"></script>
 </body>
 </html>
