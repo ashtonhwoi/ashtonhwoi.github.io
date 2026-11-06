@@ -2,7 +2,6 @@
 (() => {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const fine = matchMedia('(hover: hover) and (pointer: fine)');
-  const sky = document.querySelector('.sky-image');
   const canvas = document.createElement('canvas');
   canvas.className = 'text-particles';
   canvas.setAttribute('aria-hidden', 'true');
@@ -50,7 +49,7 @@
         const seed = Math.sin(px * 12.9898 + py * 78.233) * 43758.5453;
         const rand = seed - Math.floor(seed);
         points.push({ x: px, y: py, dx: (rand - .5) * (size > 35 ? 150 : 60),
-          dy: Math.sin(seed) * (size > 35 ? 100 : 36), delay: rand * .16 });
+          dy: Math.sin(seed) * (size > 35 ? 100 : 36), z: (rand-.35)*950, delay: rand * .16 });
       }
     }
     e.color = style.color;
@@ -82,17 +81,20 @@
       for (const point of e.points) {
         const t = clamp((progress - point.delay) / (1 - point.delay));
         const spread = (1 - t) ** 3;
-        ctx.globalAlpha = (1 - blend) * (.25 + .75 * t);
-        ctx.fillRect(r.left + point.x + point.dx * spread,
-          r.top + point.y + point.dy * spread, 1.4, 1.4);
+        const z = point.z * spread;
+        const perspective = 800 / (800 - z);
+        const px = r.left + point.x - innerWidth / 2 + point.dx * spread - x * z * .12;
+        const py = r.top + point.y - innerHeight / 2 + point.dy * spread - y * z * .08;
+        ctx.globalAlpha = (1 - blend) * (.25 + .75 * t) * Math.min(1,perspective);
+        const radius = Math.max(.65, 1.4 * perspective);
+        ctx.fillRect(innerWidth/2 + px*perspective, innerHeight/2 + py*perspective, radius, radius);
       }
     }
     ctx.globalAlpha = 1;
-    if (sky) {
-      if (disabled || !fine.matches) { x = y = 0; sky.style.transform = ''; }
+    {
+      if (disabled || !fine.matches) { x = y = 0; }
       else {
         x += (targetX - x) * .075; y += (targetY - y) * .075;
-        sky.style.transform = `perspective(1100px) rotateX(${-y * 3}deg) rotateY(${x * 4}deg) translate3d(${x * 18}px,${y * 12}px,0) scale(1.12)`;
         moving ||= Math.abs(targetX - x) + Math.abs(targetY - y) > .002;
       }
     }
